@@ -3,7 +3,7 @@
 function dd(mixed $value): void
 {
     echo "<pre>";
-    var_dump($value);
+    print_r($value);
     echo "</pre>";
     die();
 }
