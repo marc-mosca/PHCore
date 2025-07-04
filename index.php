@@ -10,4 +10,4 @@ const BASE_PATH = __DIR__;
 
 spl_autoload_register(require BASE_PATH . "/config/autoload.php");
 
-$kernel = new Kernel();
+$kernel = Kernel::create();
