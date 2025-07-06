@@ -60,6 +60,7 @@ class Router
             }
         }
         http_response_code(404);
+        require BASE_PATH . "/templates/not-found.html";
     }
 
     /**
