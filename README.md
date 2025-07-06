@@ -1,8 +1,9 @@
-# PHP Framework
+# PHP42Core
 
 An educational project aimed at understanding and reimplementing the
 standard functionalities of a modern PHP framework.
 
+> [!WARNING]  
 > Do not use this project in an official / professional project !
 
 ## Getting Started
