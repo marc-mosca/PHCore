@@ -2,40 +2,57 @@
 
 namespace App\Http;
 
+/**
+ * Class representing an HTTP response.
+ *
+ * This class define the response content, HTTP status code, and headers to be sent to the client.
+ */
 class Response
 {
 
-    protected string $content;
+    /**
+     * @var string $content The body content of the HTTP response.
+     */
+    public string $content {
+        get => $this->content;
+        set => $this->content = $value;
+    }
 
-    protected int $statusCode;
+    /**
+     * @var int $statusCode The HTTP status code (e.g., 200, 404, 500).
+     */
+    public int $statusCode {
+        get => $this->statusCode;
+        set => $this->statusCode = $value;
+    }
 
-    protected array $headers;
+    /**
+     * @var array $headers Associative array of HTTP headers to send.
+     */
+    public array $headers = [] {
+        get => $this->headers;
+        set => array_merge($this->headers, $value);
+    }
 
-    public function __construct(string $content = "", int $statusCode = 200, array $headers = [])
+    /**
+     * Construct a new Response instance.
+     *
+     * @param string $content The body of the response (default: empty string).
+     * @param int $status The HTTP status code (default: 200).
+     * @param array $headers HTTP headers to send (default: empty array).
+     */
+    public function __construct(string $content = "", int $status = 200, array $headers = [])
     {
         $this->content = $content;
-        $this->statusCode = $statusCode;
+        $this->statusCode = $status;
         $this->headers = $headers;
     }
 
-    public function setContent(string $content): self
-    {
-        $this->content = $content;
-        return $this;
-    }
-
-    public function setStatusCode(int $statusCode): self
-    {
-        $this->statusCode = $statusCode;
-        return $this;
-    }
-
-    public function setHeader(string $name, string $value): self
-    {
-        $this->headers[$name] = $value;
-        return $this;
-    }
-
+    /**
+     * Sends the HTTP response to the client.
+     *
+     * @return void
+     */
     public function send(): void
     {
         http_response_code($this->statusCode);
@@ -44,6 +61,7 @@ class Response
         {
             header("$name: $value");
         }
+
         echo $this->content;
     }
 
