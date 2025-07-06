@@ -13,7 +13,8 @@ class Response
     /**
      * @var string $content The body content of the HTTP response.
      */
-    public string $content {
+    public string $content
+    {
         get => $this->content;
         set => $this->content = $value;
     }
@@ -21,7 +22,8 @@ class Response
     /**
      * @var int $statusCode The HTTP status code (e.g., 200, 404, 500).
      */
-    public int $statusCode {
+    public int $statusCode
+    {
         get => $this->statusCode;
         set => $this->statusCode = $value;
     }
@@ -29,7 +31,8 @@ class Response
     /**
      * @var array $headers Associative array of HTTP headers to send.
      */
-    public array $headers = [] {
+    public array $headers = []
+    {
         get => $this->headers;
         set => array_merge($this->headers, $value);
     }

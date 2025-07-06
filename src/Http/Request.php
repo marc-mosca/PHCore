@@ -2,70 +2,70 @@
 
 namespace App\Http;
 
+/**
+ * Class representing an HTTP request.
+ *
+ * This class captures key information from the global PHP request environment, such as the request method, URI, path,
+ * query parameters, POST data, and server variables.
+ */
 class Request
 {
 
-    protected string $method;
+    /**
+     * @var string $method The HTTP method used for the request (e.g., GET, POST, PUT, DELETE).
+     */
+    public readonly string $method;
 
-    protected string $uri;
+    /**
+     * @var string $uri The full URI of the current request (including query string).
+     */
+    public readonly string $uri;
 
-    protected string $path;
+    /**
+     * @var string $path The path portion of the URI (excluding query string), without trailing slash.
+     */
+    public readonly string $path;
 
-    protected array $queryParameters;
-
-    protected array $postParameters;
-
-    protected array $serverParameters;
-
-    public function __construct(array $query, array $post, array $server)
+    /**
+     * @var array $queryParameters Query parameters parsed from the URL (i.e., $_GET).
+     */
+    public array $queryParameters = []
     {
-        $this->method = strtoupper($server["REQUEST_METHOD"]) ?? "GET";
-        $this->uri = $server["REQUEST_URI"] ?? "/";
-        $this->path = $this->extractPath($this->uri);
-        $this->queryParameters = $query;
-        $this->postParameters = $post;
-        $this->serverParameters = $server;
+        get => $this->queryParameters;
+        set => array_merge($this->queryParameters, $value);
     }
 
-    public static function createFromGlobals(): self
+    /**
+     * @var array $body POST data (i.e., $_POST).
+     */
+    public array $body = []
     {
-        return new self($_GET, $_POST, $_SERVER);
+        get => $this->body;
+        set => array_merge($this->body, $value);
     }
 
-    public function getMethod(): string
+    /**
+     * @var array $server Server and execution environment information (i.e., $_SERVER).
+     */
+    public array $server = []
     {
-        return $this->method;
+        get => $this->server;
+        set => array_merge($this->server, $value);
     }
 
-    public function getUri(): string
+    /**
+     * Constructs a new Request object and populates it from global variables.
+     *
+     * Normalizes the method and path. Defaults to GET method and "/" path if unavailable.
+     */
+    public function __construct()
     {
-        return $this->uri;
-    }
-
-    public function getPath(): string
-    {
-        return $this->path;
-    }
-
-    public function getQueryParameters(): array
-    {
-        return $this->queryParameters;
-    }
-
-    public function getBody(): array
-    {
-        return $this->postParameters;
-    }
-
-    public function getServerParameters(): array
-    {
-        return $this->serverParameters;
-    }
-
-    protected function extractPath(string $uri): string
-    {
-        $path = parse_url($uri, PHP_URL_PATH) ?? "/";
-        return rtrim($path, "/") ?: "/";
+        $this->method = strtoupper($_SERVER["REQUEST_METHOD"]) ?? "GET";
+        $this->uri = $_SERVER["REQUEST_URI"] ?? "/";
+        $this->path = rtrim(parse_url($this->uri, PHP_URL_PATH) ?? "/", "/") ?: "/";
+        $this->queryParameters = $_GET;
+        $this->body = $_POST;
+        $this->server = $_SERVER;
     }
 
 }
