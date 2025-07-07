@@ -1,47 +1,61 @@
-# PHCore
+<div align="center">
+<pre>
+█▀█ █ █ █▀▀ █▀█ █▀▄ █▀▀
+█▀▀ █▀█ █   █ █ █▀▄ █▀▀
+▀   ▀ ▀ ▀▀▀ ▀▀▀ ▀ ▀ ▀▀▀
+───────────────────────
+Micro framework built in PHP.
+</pre>
+</div>
 
-An educational project aimed at understanding and reimplementing the
-standard functionalities of a modern PHP framework.
+This project is an educational project aimed at understanding and
+reimplementing the standard functionalities of a modern PHP framework.
 
-> [!WARNING]  
-> Do not use this project in an official / professional project !
+## Getting Started
 
-## 📌 Getting Started
+These instructions will give you a copy of the project up and running on your
+local machine for development and testing purposes.
 
-These instructions will give you a copy of the project up and running on
-your local machine for development and testing purposes. See deployment
-for notes on deploying the project on a live system.
+### Prerequisites
 
-### 📋 Prerequisites
+- [PHP 8.0](https://www.php.net/) - Hypertext Preprocessor
 
-Requirements for the software and other tools to build, test and push:
+### Installation
 
-- [PHP](https://www.php.net/) - Hypertext Preprocessor
+Clone the project
 
-### ⏳ Installing
-
-A step by step series of examples that tell you how to get a development
-environment running
-
-Clone the repository:
-
-```bash
-git clone https://github.com/marc-mosca/Framework
+```shell
+git clone https://github.com/marc-mosca/PHCore.git
 ```
 
-Run the PHP server web with:
+Go to the project directory
 
-```bash
-php -S localhost:8080
+```shell
+cd PHCore
 ```
 
-## 👤 Authors
+Start the server
 
-- **Marc MOSCA** - *Main developer* -
-  [marc-mosca](https://github.com/marc-mosca)
+```shell
+php -S localhost:8080 -t .
+```
 
-## 📄 License
+## Contributing
 
-This project is under the [UNLICENSE](LICENSE) License.
+Contributions are always welcome!
+
+1. Fork it (<https://github.com/marc-mosca/PHCore/fork>)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
+
+## Authors
+
+- [**Marc MOSCA**](https://www.github.com/marc-mosca) - Main developer
+
+## License
+
+This project is under the [UNLICENSE](https://choosealicense.com/licenses/unlicense) License.
 By contributing, you agree that your contributions will be licensed under the
 same terms.
