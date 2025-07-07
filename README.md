@@ -1,4 +1,4 @@
-# PHP42Core
+# PHCore
 
 An educational project aimed at understanding and reimplementing the
 standard functionalities of a modern PHP framework.
@@ -6,19 +6,19 @@ standard functionalities of a modern PHP framework.
 > [!WARNING]  
 > Do not use this project in an official / professional project !
 
-## Getting Started
+## 📌 Getting Started
 
 These instructions will give you a copy of the project up and running on
 your local machine for development and testing purposes. See deployment
 for notes on deploying the project on a live system.
 
-### Prerequisites
+### 📋 Prerequisites
 
 Requirements for the software and other tools to build, test and push:
 
 - [PHP](https://www.php.net/) - Hypertext Preprocessor
 
-### Installing
+### ⏳ Installing
 
 A step by step series of examples that tell you how to get a development
 environment running
@@ -35,12 +35,12 @@ Run the PHP server web with:
 php -S localhost:8080
 ```
 
-## Authors
+## 👤 Authors
 
 - **Marc MOSCA** - *Main developer* -
   [marc-mosca](https://github.com/marc-mosca)
 
-## License
+## 📄 License
 
 This project is under the [UNLICENSE](LICENSE) License.
 By contributing, you agree that your contributions will be licensed under the
